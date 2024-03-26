@@ -295,10 +295,17 @@ class AssociativeMemory:
   def get_str_seq_chats(self): 
     ret_str = ""
     for count, event in enumerate(self.seq_chat): 
-      ret_str += f"with {event.object.content} ({event.description})\n"
-      ret_str += f'{event.created.strftime("%B %d, %Y, %H:%M:%S")}\n'
-      for row in event.filling: 
-        ret_str += f"{row[0]}: {row[1]}\n"
+        # Assuming subject, predicate, object can be combined to form a meaningful content string
+        chat_content = f"{event.subject} {event.predicate} {event.object}"
+        description = event.description
+        created_time = event.created.strftime("%B %d, %Y, %H:%M:%S")
+
+        # Building the return string with the formatted event details
+        ret_str += f"______\n"
+        ret_str += f"with {chat_content} ({description})\n"
+        ret_str += f"{created_time}\n"
+        for row in event.filling:  
+            ret_str += f"{row[0]}: {row[1]}\n"
     return ret_str
 
 

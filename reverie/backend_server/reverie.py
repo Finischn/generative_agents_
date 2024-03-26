@@ -528,14 +528,18 @@ class ReverieServer:
           ret_str += (self.personas[" ".join(sim_command.split()[-2:])]
                                        .a_mem.get_str_seq_thoughts())
 
-        elif ("print persona associative memory (chat)" 
-              in sim_command.lower()): 
-          # Print the associative memory (chat) of the persona specified in
-          # the prompt
-          # Ex: print persona associative memory (chat) Isabella Rodriguez
-          ret_str += f'{self.personas[" ".join(sim_command.split()[-2:])]}\n'
-          ret_str += (self.personas[" ".join(sim_command.split()[-2:])]
-                                       .a_mem.get_str_seq_chats())
+        elif "print persona associative memory (chat)" in sim_command.lower():
+          # Extract persona name from the command
+          persona_name = " ".join(sim_command.split()[-2:])
+          persona = self.personas.get(persona_name)  
+
+          if persona:
+              # Print the formatted associative memory chats directly
+              ret_str += f"Associative Memory (Chat) for {persona_name}:\n"
+              ret_str += persona.a_mem.get_str_seq_chats()
+          else:
+              # Persona not found
+              ret_str += f"Persona '{persona_name}' not found.\n"
 
         elif ("print persona spatial memory" 
               in sim_command.lower()): 
