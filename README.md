@@ -6,6 +6,25 @@
 <img src="cover.png" alt="Smallville" style="width: 80%; min-width: 300px; display: block; margin: auto;">
 </p>
 
+## Changes in This Version
+This is a minorly changed version of the original repository:  "[Generative Agents: Interactive Simulacra of Human Behavior](https://github.com/joonspk-research/generative_agents)."
+
+The most important changes are:
+- **Model**: Switched to `gpt-3.5-turbo-instruct`, replacing deprecated models `text-davinci-002` and `text-davinci-003`
+- **Phaser**: Changed settings to show entire map of village
+- **Inner Voice**: "Call -- Inner Voice" added to insert thoughts into persona's memory
+
+**Note**: When starting a new game run the game at least one timestep before using any of the "call" commands specified in reverie.py
+
+
+
+Below original readme:
+
+---
+
+
+
+
 This repository accompanies our research paper titled "[Generative Agents: Interactive Simulacra of Human Behavior](https://arxiv.org/abs/2304.03442)." It contains our core simulation module for  generative agents—computational agents that simulate believable human behaviors—and their game environment. Below, we document the steps for setting up the simulation environment on your local machine and for replaying the simulation as a demo animation.
 
 ## <img src="https://joonsungpark.s3.amazonaws.com:443/static/assets/characters/profile/Isabella_Rodriguez.png" alt="Generative Isabella">   Setting Up the Environment 
