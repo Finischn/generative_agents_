@@ -582,7 +582,7 @@ class ReverieServer:
               in sim_command.lower()): 
           #allows to be agent's inner voice, adding a specific thought to it's memory
           # Ex: call -- inner voice Isabella Rodriguez
-          persona_name = sim_command[len("call -- inner"):].strip() 
+          persona_name = sim_command[len("call -- inner voice"):].strip() 
           self.personas[persona_name].open_convo_session("whisper")
 
         elif ("call -- load history" 
