@@ -578,6 +578,13 @@ class ReverieServer:
           persona_name = sim_command[len("call -- analysis"):].strip() 
           self.personas[persona_name].open_convo_session("analysis")
 
+        elif ("call -- inner voice" 
+              in sim_command.lower()): 
+          #allows to be agent's inner voice, adding a specific thought to it's memory
+          # Ex: call -- inner voice Isabella Rodriguez
+          persona_name = sim_command[len("call -- inner"):].strip() 
+          self.personas[persona_name].open_convo_session("whisper")
+
         elif ("call -- load history" 
               in sim_command.lower()): 
           curr_file = maze_assets_loc + "/" + sim_command[len("call -- load history"):].strip() 
